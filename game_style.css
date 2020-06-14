@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+}
+
+a:link {
+    color: #FFF;
+    text-decoration: none;
+}
+a:visited {
+    color: #FFF;
+    text-decoration: none;
+}
+a:hover {
+    color: #D0D0D0;
+    text-decoration: none;
+}
+a:active {
+    color: #DFDFD0;
+    text-decoration: none;
+}
+
+.main_menu{
+    width: 40%;
+    height: 60%;
+    background-color: blueviolet;
+    position: absolute;
+    left:30%;
+    top: 20%;
+}
+
+.main_menu_button{
+    display: block;
+    height: 20%;
+    width: 90%;
+    border: 1px solid blue;
+    position: relative;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.main_menu_button_text{
+    margin: 5% auto;
+    font-size: 30pt;
+    font-family: sans-serif;
+}
+
+.adder_name{
+    display: inline-block;
+}
+
+.adder_button{
+    display: inline-block;
+}
