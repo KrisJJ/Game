@@ -11,5 +11,5 @@
     ";
     $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
 
-    echo('<script>document.location.href="board.php?id='.$id.'"</script>');
+    echo('<script>document.location.href="board2.php?id='.$id.'"</script>');
 ?>

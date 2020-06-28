@@ -14,13 +14,14 @@
         name1 varchar (30),
         player2 VARBINARY (16),
         name2 varchar (30),
-        board varchar (50),
+        board TEXT,
         single BOOLEAN,
+        fin BOOLEAN,
         PRIMARY KEY(id)
     )";
     $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
 
-    $sql = "SELECT * FROM `games` WHERE player2 IS NULL AND single=0 LIMIT 10";
+    $sql = "SELECT * FROM `games` WHERE player2 IS NULL AND single=0 AND fin=0 LIMIT 10";
     $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
     while ($row = $res->fetch_assoc()){
         $name = $row['name1'];
@@ -33,7 +34,7 @@
             <input name="val" type="hidden" value="'.$id.'">
         </form>');
     }
-    if(!$res){
+    if(!array_key_first($row)){
         echo('Сейчас доступных игр нет');
     }
     ?>

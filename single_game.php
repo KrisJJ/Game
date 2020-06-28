@@ -1,45 +1,15 @@
 <HTML>
 <head>
-    <title>Одиночная игра</title>
+    <title>Сетевая игра</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="game_style.css">
 </head>
 <body>
-    <?php
-    include "connection.php";
-
-    $sql = "CREATE TABLE IF NOT EXISTS `games`(
-            id INT AUTO_INCREMENT,
-            player1 VARBINARY (16) NOT NULL,
-            name1 varchar (30),
-            player2 VARBINARY (16),
-            name2 varchar (30),
-            board varchar (50),
-            single BOOLEAN,
-            PRIMARY KEY(id)
-        )";
-    $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
-
-    $ip = ip2long($_SERVER['REMOTE_ADDR']);
-    $name = $_SESSION['login'];
-    $board = "";
-    $single = 1;
-
-    $sql = "SELECT id FROM `games` ORDER BY id DESC";
-    $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
-    $row = $res->fetch_array(MYSQLI_ASSOC);
-    $id = $row['id']+1;
-
-    $sql = "INSERT INTO `games` (id, player1, name1, board, single) VALUES(
-            '$id',
-            '$ip',
-            '$name',
-            '$board',
-            '$single'
-        )";
-    $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
-
-    echo('<script>document.location.href="board.php?id='.$id.'"</script>');
-    ?>
+<div class="main_menu">
+    <p>Выберите уровень сложности</p>
+    <a href="single_easy.php"><div class="main_menu_button"><p class="main_menu_button_text">Начальный</p></div></a>
+    <a href="single_hard.php"><div class="main_menu_button"><p class="main_menu_button_text">Эксперт</p></div></a>
+    <a href="index.php"><div class="main_menu_button"><p class="main_menu_button_text">Назад</p></div></a>
+</div>
 </body>
 </HTML>
