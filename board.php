@@ -10,7 +10,7 @@
 	
 </head>
 <body>
-	<div id="message" style="color: white; font-family: Comic Sans MS; font-size: 40pt; position: absolute; "></div>
+	<div id="message" class="text"></div>
 	<br>
 	<div class="field">
 	<div  id="area">
@@ -26,12 +26,9 @@
 	</div>
 
 	<div align="center">
-		<button id="reload">Начать заново</button>
+		<button id="reload" class="butt">Начать заново</button>
+        <button id="back" class="butt">Выйти из игры</button>
 	</div>
-	</div>
-
-    <div>
-        <button id="back">Выйти из игры</button>
     </div>
     <?php
     if($_GET['level']=="easy"){

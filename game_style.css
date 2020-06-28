@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
 body{
 	font-family:monospace;
 	background-image: url("pict/back.jpg");
@@ -29,20 +31,21 @@ a:active {
 .main_menu{
     width: 45%;
     height: 60%;
-    background-color: blueviolet;
+    background-color: darkmagenta;
     position: absolute;
     left:27.5%;
-    top: 20%;
+    top: 12%;
     text-align: center;
+    padding-top: 3%;
 }
 
 .main_menu_button{
     display: block;
     height: 20%;
     width: 90%;
-    border: 1px solid blue;
+    border: 1px solid lightpink;
     position: relative;
-    margin: 10% auto 0 auto;
+    margin: 0 auto 10% auto;
     text-align: center;
 }
 
@@ -50,20 +53,25 @@ a:active {
     display: inline-block;
     height: 20%;
     width: 45%;
-    border: 1px solid blue;
+    border: 1px solid lightpink;
     position: relative;
-    margin: 10% auto 0 auto;
+    margin: 0 auto 10% auto;
     text-align: center;
 }
 
 .main_menu_button_text{
     margin: 5% auto;
     font-size: 30pt;
-    font-family: sans-serif;
+    font-family: Pattaya;
+    color: lightpink;
 }
 
 .adder_name{
     display: inline-block;
+    font-size: 18pt;
+    font-family: Pattaya;
+    color: lightpink;
+    margin-left: 15px;
 }
 
 .adder_button{
@@ -93,10 +101,25 @@ a:active {
     font-size: 12rem;
 }
 .text{
-    /*font-family: Comic Sans MS;*/
-    color: white;
-    /*margin:250px 300px;*/
+    font-family: Pattaya;
+    color: lightpink;
     text-align: center;
     font-weight:bold;
+    position: absolute;
+    font-size: 40pt;
+}
 
+#info{
+    font-size: 18pt;
+    font-family: Pattaya;
+    color: lightpink;
+    margin: 0 auto 15px auto;
+}
+
+.butt{
+    font-size: 16pt;
+    margin-top: 5px;
+    font-family: Pattaya;
+    background-color: darkmagenta;
+    color: lightpink;
 }

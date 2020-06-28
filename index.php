@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "connection.php";
+?>
+
 <HTML>
 <head>
     <title>Главная</title>
@@ -10,8 +15,6 @@
 <body>
 
 <?php
-session_start();
-include "connection.php";
 $sql = "CREATE TABLE IF NOT EXISTS users (
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		username TEXT NOT NULL, 

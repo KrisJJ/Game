@@ -17,6 +17,7 @@
         board TEXT,
         single BOOLEAN,
         fin BOOLEAN,
+        move BOOLEAN,
         PRIMARY KEY(id)
     )";
     $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
@@ -30,7 +31,7 @@
     $name = $_SESSION['login'];
     $single = 0;
     $fin = 0;
-    $board = array(0=>'O',1=>'',2=>'',3=>'',4=>'',5=>'',6=>'',7=>'',8=>'',);
+    $board = array(0=>'',1=>'',2=>'',3=>'',4=>'',5=>'',6=>'',7=>'',8=>'',);
     $board = serialize($board);
     $sql = "INSERT INTO `games` (id, player1, name1, board, single, fin) VALUES(
         '$id',

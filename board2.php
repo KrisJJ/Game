@@ -14,7 +14,7 @@ $id = $_GET['id'];
 </head>
 <body>
 	<input type="hidden" id='game_id' value=<?echo $id;?>>
-	<div id="message" style="color: white; font-family: Comic Sans MS; font-size: 40pt; position: absolute; "></div>
+	<div id="message" class="text"></div>
 	<br>
 	<div class="field" id = 'field'>
 		<div  id="area">
@@ -28,7 +28,13 @@ $id = $_GET['id'];
 		<div class="block"></div>
 		<div class="block"></div>	
 		</div>
+
+        <div align="center">
+            <button id="back" class="butt">Выйти из игры</button>
+        </div>
 	</div>
+
+
 
 	<script type="text/javascript" src="js/multiplayer.js"></script>
 	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>

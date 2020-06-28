@@ -18,6 +18,7 @@
             board TEXT,
             single BOOLEAN,
             fin BOOLEAN,
+            move BOOLEAN,
             PRIMARY KEY(id)
         )";
     $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));

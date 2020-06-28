@@ -19,7 +19,7 @@
 				if ($row1['id']==null){
 					$result1->close();
 					$sql1="SELECT * FROM `users` WHERE `username`='".$newusername."'";
-					$result1 = mysqli_query($cnct,$sql1)or die("Ошибка 2");
+					$result1 = mysqli_query($conn,$sql1)or die("Ошибка 2");
 					$row1=$result1->fetch_array(MYSQLI_ASSOC);
 					if ($row1==null){
 						$result1->close();
@@ -87,8 +87,8 @@
 	<link rel="SHORTCUT ICON" href=" public_html/favicon.ico" type="image/x-icon">
 </head>
 
-<body >
-<a href="http://localhost/Game/">Назад</a>
+<body>
+<a href="http://localhost/Game/"><div id="info" style="margin-top: 5%;">Назад</div></a>
 <form action="" method="POST">
 		<?php
 		if (isset($_SESSION['error_message'])){
@@ -114,7 +114,7 @@
 				<p><input name="newname" type="text"  placeholder="Имя пользовтеля" value="" pattern="^[А-Яа-яЁё\s\a-zA-Z\0-9]+$"></p>
 				<p><input name="newpass" type="password"  placeholder="Пароль" value="" ></p>
 				<p><input name="repeatpass" type="password"  placeholder="Повторить пароль" value=""></p>
-				<div><input type="submit" name="btn_sub_reg" value="Продолжить"></div>
+				<div><input type="submit" name="btn_sub_reg" class="butt" value="Продолжить"></div>
 			</div>
 		</form>	
 </body>

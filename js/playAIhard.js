@@ -22,7 +22,7 @@ $('#reload').click(function(){
 });
 
 $('#back').click(function(){
-	location.href = "finalise.php"+location.search;
+	location.href = "finalise.php"+location.search+"&ppl=single";
 });
 });
 
@@ -41,17 +41,25 @@ function check(){
 		[2,4,6]
 	]
 
-	for(var i = 0; i< arr.length; i++){
-		if (boxes[arr[i][0]].innerHTML=='X' && boxes[arr[i][1]].innerHTML=='X' && boxes[arr[i][2]].innerHTML=='X'){
-			message.innerHTML="Победили крестики!";
+	for(var i = 0; i< arr.length; i++) {
+		if (boxes[arr[i][0]].innerHTML == 'X' && boxes[arr[i][1]].innerHTML == 'X' && boxes[arr[i][2]].innerHTML == 'X') {
+			message.innerHTML = "Победили крестики!";
 			isFinished = 1;
-		}else if(boxes[arr[i][0]].innerHTML=='O' && boxes[arr[i][1]].innerHTML=='O' && boxes[arr[i][2]].innerHTML=='O')	{
-			message.innerHTML="Победили нолики!";
-			isFinished = 1;
-		}else if(!isFinished&&move==9){
-			message.innerHTML="Ничья!";
-			isFinished = 1;
-		}	
+			$.get("win.php");
+		}
+	}
+	if(!isFinished){
+		for(var i = 0; i< arr.length; i++){
+			if (boxes[arr[i][0]].innerHTML=='O' && boxes[arr[i][1]].innerHTML=='O' && boxes[arr[i][2]].innerHTML=='O'){
+				message.innerHTML="Победили нолики!";
+				isFinished = 1;
+				$.get("lose.php");
+			}else if(!isFinished&&move==9){
+				message.innerHTML="Ничья!";
+				isFinished = 1;
+				$.get("tie.php");
+			}
+		}
 	}
 }
 

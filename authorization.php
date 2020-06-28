@@ -43,6 +43,7 @@
 	<link rel="SHORTCUT ICON" href=" public_html/favicon.ico" type="image/x-icon">
 </head>
 <body>
+<a href="http://localhost/Game/"><div id="info" style="margin-top: 5%;">Назад</div></a>
 <form class="" action="" method="POST">
 	<?php
 		if (isset($_SESSION['error_message'])){
@@ -59,10 +60,10 @@
 			unset($_SESSION['error_message']);
 		}
 		?>
-		<p><input class="" name="username" type="text" size="30" placeholder="Login" value="" pattern="^[А-Яа-яЁё\s\a-zA-Z\0-9]+$"></p>
-		<p><input class="" name="userpass" type="password" size="30" placeholder="Password" value="" ></p>
-		<div class="">
-			<input class="" type="submit" name="b_ent" value="Accept">
+		<p><input name="username" type="text" size="30" placeholder="Имя пользователя" value="" pattern="^[А-Яа-яЁё\s\a-zA-Z\0-9]+$"></p>
+		<p><input name="userpass" type="password" size="30" placeholder="Пароль" value="" ></p>
+		<div>
+			<input type="submit" name="b_ent" class="butt" value="Подтвердить">
 		</div>
 	</form>	
 </body>

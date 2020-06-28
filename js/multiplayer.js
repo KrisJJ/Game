@@ -1,6 +1,6 @@
 var isFinished = 0;
 var message=document.querySelector('#message'),
-	move = 0;
+	move=0;
 $(document).ready(function()
 	{	
 	var area = document.getElementById('area');
@@ -10,12 +10,12 @@ $(document).ready(function()
 	area.addEventListener('click',function(event){
 	if(event.target.innerHTML=='' && !isFinished){
 		SetField(event.target.id);
-		/*move++;
-		check();*/
+		move++;
 }
 });
-$('#reload').click(function(){
-	location.reload();
+$('#back').click(function(){
+	isFinished=1;
+	location.href = "finalise.php"+location.search+"&ppl=multi";
 });
 });
 function check(){
@@ -33,47 +33,51 @@ function check(){
 		[2,4,6]
 	]
 
-	for(var i = 0; i< arr.length; i++){
-		if (boxes[arr[i][0]].innerHTML=='X' && boxes[arr[i][1]].innerHTML=='X' && boxes[arr[i][2]].innerHTML=='X'){
-			message.innerHTML="Победили крестики!";
+	for(var i = 0; i< arr.length; i++) {
+		if (boxes[arr[i][0]].innerHTML == 'X' && boxes[arr[i][1]].innerHTML == 'X' && boxes[arr[i][2]].innerHTML == 'X') {
+			message.innerHTML = "Победили крестики!";
 			isFinished = 1;
-		}else if(boxes[arr[i][0]].innerHTML=='O' && boxes[arr[i][1]].innerHTML=='O' && boxes[arr[i][2]].innerHTML=='O')	{
-			message.innerHTML="Победили нолики!";
-			isFinished = 1;
-		}else if(!isFinished&&move==9){
-			message.innerHTML="Ничья!";
-			isFinished = 1;
-		}	
+		}
+	}
+	if(!isFinished){
+		for(var i = 0; i< arr.length; i++){
+			if (boxes[arr[i][0]].innerHTML=='O' && boxes[arr[i][1]].innerHTML=='O' && boxes[arr[i][2]].innerHTML=='O'){
+				message.innerHTML="Победили нолики!";
+				isFinished = 1;
+			}else if(!isFinished&&move==9){
+				message.innerHTML="Ничья!";
+				isFinished = 1;
+			}
+		}
 	}
 }
 
 function GetField(){
-	var request = new XMLHttpRequest();
-	var params = location.search.slice(1);
-	request.onreadystatechange = function(){
-		if(request.readyState == 4) {
-			if(request.responseText!=0){
-				document.querySelector('#area').innerHTML = request.responseText;
-				check();
+	if(!isFinished){
+		var request = new XMLHttpRequest();
+		var params = location.search.slice(1);
+		request.onreadystatechange = function(){
+			if(request.readyState == 4) {
+				if(request.responseText!=0){
+					document.querySelector('#area').innerHTML = request.responseText;
+					check();
+				}
 			}
 		}
+		request.open('POST','pull_field.php');
+		request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+		request.send(params);
 	}
-	request.open('POST','pull_field.php');
-	request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-	request.send(params);
+
 }
 
 function SetField(event){
-	var request = new XMLHttpRequest();
-	var params = location.search.slice(1)+'&'+'event='+event+'&'+'move='+move;
-	request.onreadystatechange = function(){
-		if(request.readyState == 4) {
-			if(request.responseText!=0){
-				move++;
-			}
-		}
+	if(!isFinished){
+		var request = new XMLHttpRequest();
+		var params = location.search.slice(1)+'&'+'event='+event;
+		request.open('POST','push_field.php');
+		request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+		request.send(params);
 	}
-	request.open('POST','push_field.php');
-	request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-	request.send(params);
+
 }
