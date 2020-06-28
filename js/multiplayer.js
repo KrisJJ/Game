@@ -44,7 +44,7 @@ function check(){
 			if (boxes[arr[i][0]].innerHTML=='O' && boxes[arr[i][1]].innerHTML=='O' && boxes[arr[i][2]].innerHTML=='O'){
 				message.innerHTML="Победили нолики!";
 				isFinished = 1;
-			}else if(!isFinished&&move==9){
+			}else if(!isFinished&&move>=9){
 				message.innerHTML="Ничья!";
 				isFinished = 1;
 			}
