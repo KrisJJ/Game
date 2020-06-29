@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 $id = $_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -18,7 +19,6 @@ $id = $_GET['id'];
 	<br>
 	<div class="field" id = 'field'>
 		<div  id="area">
-        <div id="info"></div>
         <div class="block"></div>
 		<div class="block"></div>
 		<div class="block"></div>

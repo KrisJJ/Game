@@ -13,8 +13,8 @@
 			if ($row['username'] == $username){
 				$hashpass=$row['password'];
 				$rows1 = mysqli_num_rows($result);
-				if (password_verify($password, $hashpass)) {				
-					$_SESSION['username']=$username;
+				if (password_verify($password, $hashpass)) {
+                    $_SESSION['login']=$username;
 					$_SESSION['id']=$row['id'];
 					$_SESSION['email']=$row['email'];
 					header('Location: http://localhost/Game/');

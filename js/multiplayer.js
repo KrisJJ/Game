@@ -1,6 +1,5 @@
 var isFinished = 0;
-var message=document.querySelector('#message'),
-	move=0;
+var message=document.querySelector('#message');
 $(document).ready(function()
 	{	
 	var area = document.getElementById('area');
@@ -10,7 +9,7 @@ $(document).ready(function()
 	area.addEventListener('click',function(event){
 	if(event.target.innerHTML=='' && !isFinished){
 		SetField(event.target.id);
-		move++;
+		check();
 }
 });
 $('#back').click(function(){
@@ -37,6 +36,7 @@ function check(){
 		if (boxes[arr[i][0]].innerHTML == 'X' && boxes[arr[i][1]].innerHTML == 'X' && boxes[arr[i][2]].innerHTML == 'X') {
 			message.innerHTML = "Победили крестики!";
 			isFinished = 1;
+			//$.get("win.php");
 		}
 	}
 	if(!isFinished){
@@ -44,11 +44,20 @@ function check(){
 			if (boxes[arr[i][0]].innerHTML=='O' && boxes[arr[i][1]].innerHTML=='O' && boxes[arr[i][2]].innerHTML=='O'){
 				message.innerHTML="Победили нолики!";
 				isFinished = 1;
-			}else if(!isFinished&&move>=9){
-				message.innerHTML="Ничья!";
-				isFinished = 1;
+				//$.get("lose.php");
 			}
 		}
+	if(!isFinished){
+		var k = 9;
+		for(var i = 0; i<9; i++){
+			if (boxes[i].innerHTML=='X' || boxes[i].innerHTML=='O'){k--;}
+		}
+		if(k==0){
+			message.innerHTML="Ничья!";
+			isFinished = 1;
+			//$.get("tie.php");
+		}
+	}
 	}
 }
 

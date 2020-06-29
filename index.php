@@ -28,8 +28,21 @@ $sql = "CREATE TABLE IF NOT EXISTS users (
 		winAI int NOT NULL
 	)";
 $result1 = mysqli_query($conn,$sql)or die("Ошибка 3");
-?>
 
+
+$sql0="SELECT * FROM `users` WHERE `id`='".$_SESSION['id']."'";
+$result=mysqli_query($conn,$sql0) or die ("Ошибка");
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$win=$row['winAI'];
+$lose=$row['looseAI'];
+$all=$row['playAI'];
+echo('<div class="obl">
+<div class="score">Игр сыграно: '.$all.'</div>
+<div class="score">Побед: '.$win.'</div>
+<div class="score">Поражений: '.$lose.'</div>
+</div>
+')
+?>
     <div class="main_menu">
         <a href="authorization.php"><div class="main_menu_button_1"><p class="main_menu_button_text">Вход</p></div></a>
         <a href="registration.php"><div class="main_menu_button_1"><p class="main_menu_button_text">Регистрация</p></div></a>

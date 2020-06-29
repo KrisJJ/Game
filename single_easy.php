@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <HTML>
 <head>
     <title>Одиночная игра</title>
@@ -23,7 +26,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `games`(
         )";
 $res = mysqli_query($conn,$sql) or die("Ошибка: ".mysqli_error($conn));
 
-$ip = ip2long($_GET['ip']);
+$ip = ip2long($_SERVER['REMOTE_ADDR']);
 $name = $_SESSION['login'];
 $board = "";
 $single = 1;

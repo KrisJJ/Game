@@ -28,6 +28,20 @@ a:active {
     text-decoration: none;
 }
 
+.obl{
+    position: absolute;
+    top: 12%;
+    width:20%;
+    background-color: darkmagenta;
+    text-align: center;
+}
+
+.score{
+    font-size: 20pt;
+    font-family: Pattaya;
+    color: lightpink;
+}
+
 .main_menu{
     width: 45%;
     height: 60%;
